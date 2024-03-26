@@ -38,3 +38,22 @@ const Component = () => {
   )
 }
 ```
+
+To use plugin:
+
+```
+yarn add -D eslint-plugin-no-complex-evaluation-in-jsx
+```
+
+configure in .eslintrc.json
+
+```json
+{
+"plugins": [ 
+	"no-complex-evaluation-in-jsx"
+  ],
+"rules": {
+	"no-complex-evaluation-in-jsx/no-complex-evaluation-in-jsx": ["error"]
+  }
+}
+```
