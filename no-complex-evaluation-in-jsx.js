@@ -1,6 +1,6 @@
 /**
  * @fileoverview Disallow complex evaluation expressions in JSX
- * @module eslint-no-complex-evaluation-in-jsx/rule
+ * @module eslint-plugin-no-complex-evaluation-in-jsx/rule
  */
 
 module.exports = {

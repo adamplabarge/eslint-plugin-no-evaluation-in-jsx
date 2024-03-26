@@ -1,7 +1,7 @@
 {
-  "name": "eslint-no-complex-evaluation-in-jsx",
+  "name": "eslint-plugin-no-complex-evaluation-in-jsx",
   "version": "1.0.0",
-  "description": "",
+  "description": "Disallow complex evaluation expressions in JSX.",
   "main": "index.js",
   "scripts": {
     "test": "node rule.test.js"
