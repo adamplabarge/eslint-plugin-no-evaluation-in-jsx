@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-no-complex-evaluation-in-jsx",
-  "version": "1.0.0-3",
+  "version": "1.0.0-4",
   "description": "Disallow complex evaluation expressions in JSX.",
   "main": "index.js",
   "scripts": {
