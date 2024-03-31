@@ -26,7 +26,7 @@ module.exports = {
 
     const { sourceCode } = context
 
-    const evaluationOperators = new Set(['>', '<', '>=', '<=', '==', '===', '!=', '!==', '&&', '||', '&', '|', '^', '~'])
+    const evaluationOperators = new Set(['&&', '||'])
 
     /**
      * Check if a value is an evaluation operator
@@ -42,12 +42,12 @@ module.exports = {
      * @param {Object} node - The node to check from.
      * @returns {boolean} - True if the node represents a complex expression, false otherwise.
      */
-    function hasComplexExpression(node) {
+    function hasComplexLogicalExpression(node) {
       if (node.type === "LogicalExpression") {
         if (isEvaluationOperator(node.operator)) {
           let count = 0
           const tokens = sourceCode.getTokens(node)
-
+          
           for (let i = 0; i < tokens.length; i++) {
             if (isEvaluationOperator(tokens[i].value)) {
               count = count + 1
@@ -67,7 +67,7 @@ module.exports = {
      */
     function checkJSXExpression(node) {
       if (node.type === "JSXExpressionContainer") {
-        if (hasComplexExpression(node.expression)) {
+        if (hasComplexLogicalExpression(node.expression)) {
           context.report({
             node: node,
             message: "Avoid using complex evaluation expressions in JSX"

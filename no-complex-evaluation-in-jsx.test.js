@@ -29,7 +29,7 @@ ruleTester.run('no-complex-evaluations-in-jsx', rule, {
       code: `<div>{(a || b)}</div>`,
     },
     {
-      code: '<div>{(!a && b)}</div>',
+      code: '<div>{(! a && b)}</div>',
     },
     {
       code: `const Component = () => {
@@ -93,7 +93,7 @@ ruleTester.run('no-complex-evaluations-in-jsx', rule, {
         return (
           <div>
             {
-              a || b && c.length === 0 && <SubComponent />
+              a || b && c.length && <SubComponent />
             }
           </div>
         )

@@ -4,6 +4,8 @@ To use this rule, you need to have ESLint installed in your project. You can the
 
 For more details, please refer to the rule.test.js file.
 
+Currently only accounts for && and || Logical Expressions. ! is ignored.
+
 ```javascript
 // DISALLOWED
 const Component = () => {
