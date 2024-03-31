@@ -4,7 +4,7 @@
   "description": "Disallow complex evaluation expressions in JSX.",
   "main": "index.js",
   "scripts": {
-    "test": "node rule.test.js"
+    "test": "node no-complex-evaluation-in-jsx.test.js"
   },
   "keywords": [],
   "author": "",

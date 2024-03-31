@@ -3,7 +3,7 @@
  */
 
 const { RuleTester } = require('eslint');
-const rule = require('./rule');
+const rule = require('./no-complex-evaluation-in-jsx.js');
 
 const ruleTester = new RuleTester({
   parser: require.resolve('@typescript-eslint/parser'),
@@ -29,6 +29,9 @@ ruleTester.run('no-complex-evaluations-in-jsx', rule, {
       code: `<div>{(a || b)}</div>`,
     },
     {
+      code: '<div>{(!a && b)}</div>',
+    },
+    {
       code: `const Component = () => {
         const a = 0 || ( 0 || 1 )
         return (<div>{a}</div>)
@@ -36,7 +39,7 @@ ruleTester.run('no-complex-evaluations-in-jsx', rule, {
     },
     {
       code: `const a = 0 || ( 0 || 1 )`
-    },
+    }
   ],
 
   invalid: [
