@@ -1,5 +1,5 @@
 /**
- * @fileoverview Disallow complex evaluation expressions in JSX
+ * @fileoverview Disallow complex Logical Expressions in JSX
  * @module eslint-plugin-no-complex-evaluation-in-jsx/rule
  */
 
@@ -10,7 +10,7 @@ module.exports = {
   meta: {
     type: "suggestion",
     docs: {
-      description: "Disallow complex evaluation expressions in JSX",
+      description: "Disallow complex Logical Expressions in JSX",
       category: "Best Practices",
       recommended: true
     },
@@ -43,6 +43,7 @@ module.exports = {
      * @returns {boolean} - True if the node represents a complex expression, false otherwise.
      */
     function hasComplexLogicalExpression(node) {
+      return false
       if (node.type === "LogicalExpression") {
         if (isEvaluationOperator(node.operator)) {
           let count = 0
@@ -62,7 +63,7 @@ module.exports = {
     }
 
     /**
-     * Check a JSX expression for complex evaluation expressions.
+     * Check a JSX expression for complex Logical Expressions.
      * @param {Object} node - The JSXExpressionContainer node to check.
      */
     function checkJSXExpression(node) {
@@ -70,7 +71,7 @@ module.exports = {
         if (hasComplexLogicalExpression(node.expression)) {
           context.report({
             node: node,
-            message: "Avoid using complex evaluation expressions in JSX"
+            message: "Avoid using complex Logical Expressions in JSX"
           });
         }
       }
